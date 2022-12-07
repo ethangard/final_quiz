@@ -1,5 +1,9 @@
 class Api::V1::AuctionsController <Api::ApplicationController
 
+  # skip_before_action :verify_authenticity_token
+
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     auctions = Auction.order(created_at: :desc)
     render json: auctions
