@@ -19,19 +19,16 @@ function SignUpPage(props) {
     }
 
     User.create(params).then((data) => {
-      if (data.id) {
+      // console.log(data[0].id)
+      if (data[0].id) {
         onSignUp()
-        // Navigated to Index page from the browser
-        // We can 'push' on history to manipulate the browser
-        // and direct our user to any page in our app
         navigate('/')
       }
     })
   }
 
   return (
-    <main>
-      <h1>Sign In</h1>
+    <main className='sign-in'>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="first_name">First name</label>

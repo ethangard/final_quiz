@@ -6,17 +6,27 @@ export const Auction = {
     const data = await req.json()
     return data
   },
-  async create(params) {
-    const req = await fetch(`${baseURL}/auctions`, {
+  // async create(params) {
+  //   const req = await fetch(`${baseURL}/auctions`, {
+  //     method: 'POST',
+  //     credentials: 'include',
+  //     headers: {
+  //       'Content-type': 'application/json',
+  //     },
+  //     body: JSON.stringify(params),
+  //   })
+  //   const data = await req.json()
+  //   return data
+  // },
+  create(params) {
+    return fetch(`${baseURL}/auctions`, {
       method: 'POST',
-      credentials: 'include',
+      credentials: 'include', 
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(params),
-    })
-    const data = await req.json()
-    return data
+    }).then((res) => res.json())
   },
   show(id) {
     return fetch(`${baseURL}/auctions/${id}`).then((res) => res.json())
@@ -51,7 +61,7 @@ export const Session = {
   create(params) {
     return fetch(`${baseURL}/session`, {
       method: 'POST',
-      credentials: 'include', // need for cookies to be sent cross origin
+      credentials: 'include',
       headers: {
         'Content-type': 'application/json',
       },
@@ -61,7 +71,7 @@ export const Session = {
   destroy() {
     return fetch(`${baseURL}/session`, {
       method: 'DELETE',
-      credentials: 'include', // need for cookies to be sent cross origin
+      credentials: 'include',
     }).then((res) => res.json())
   },
 }
@@ -69,7 +79,7 @@ export const Session = {
 export const User = {
   current() {
     return fetch(`${baseURL}/users/current`, {
-      credentials: 'include', // need for cookies to be allowed to be sent cross-origin
+      credentials: 'include',
     }).then((res) => res.json())
   },
   create(params) {

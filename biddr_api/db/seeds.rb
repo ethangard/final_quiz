@@ -20,6 +20,14 @@ test_user =
     password: PASSWORD
   })
 
+test_user = 
+  User.create({
+    first_name: 'Ethan',
+    last_name: 'Gard',
+    email: "me@me.com",
+    password: PASSWORD
+  })
+
 15.times do 
   first_name = Faker::Name::first_name
   last_name = Faker::Name::last_name
@@ -35,16 +43,21 @@ end
 users = User.all
 
 rand(23..68).times do 
+
+  created_at = Faker::Date.backward(days: 365 * 5)
+
   a = Auction.create({
     title: Faker::Hacker.say_something_smart,
     description: Faker::Hacker.say_something_smart,
     date: 'This is the date',
     reserve_price: rand(1...11589),
+    created_at: created_at,
+    updated_at: created_at,
     user: users.sample
   })
 
   if a.valid?
-      rand(2..18).times do
+      rand(2..6).times do
       Bid.create({
         price: rand(1..1167),
         auction: a, user: users.sample

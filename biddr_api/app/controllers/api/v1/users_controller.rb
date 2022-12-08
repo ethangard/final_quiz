@@ -1,5 +1,8 @@
 class Api::V1::UsersController < Api::ApplicationController
+
   def current
+    # p current_user
+    # p session[:user_id]
     render json: current_user   
   end
 
@@ -7,8 +10,7 @@ class Api::V1::UsersController < Api::ApplicationController
     user_params = params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     user = User.new user_params
 
-    
-    if user.save  
+    if user.save
       session[:user_id] = user.id
       render json: [id: user.id]
     else
@@ -17,7 +19,6 @@ class Api::V1::UsersController < Api::ApplicationController
         status: 422
       )
     end
-    
   end
 
 end

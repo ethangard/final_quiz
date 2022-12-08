@@ -36,3 +36,146 @@
     transform: rotate(360deg);
   }
 }
+
+/* Nav Bar Styles */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  background-color: #f1f1f1;
+}
+
+.nav-item {
+  margin: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.logo {
+}
+
+.welcome-image {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.title-text-container {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+}
+
+.title-text {
+  font-style: papayrus;
+  font-size: 3em;
+}
+
+/* Index page styles */
+
+.auctions-title-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em;
+  font-size: 3em;
+  font-weight: 750;
+  background-color: #fdf7ea;
+  margin-bottom: 0.5em;
+}
+.auction-index-container {
+  padding: 1em 2em 2em 2em;
+}
+
+.index-title {
+  font-size: 1.15em;
+  color: #7aa3e3;
+  margin: 0.3em;
+}
+
+.index-time {
+  margin: 0.3em;
+  margin-bottom: 1em;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 3em;
+}
+
+.flex-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.sign-in-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.sign-in-input {
+  width: 250px;
+  height: 1.8em;
+  border-radius: 3px;
+}
+
+.sign-in-btn {
+  width: 250px;
+  background-color: #000;
+  color: #fff;
+  font-size: 1.5em;
+}
+
+/* Show Page Styles */
+
+.show-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  font-size: 1.5em;
+}
+
+.show-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.show-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.previous-bids{
+  text-decoration: underline;
+  margin-top: 0.5em;
+}
+
+.bids {
+  margin: 0.4em;
+}

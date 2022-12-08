@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Form, useParams } from 'react-router-dom'
 import { Auction, Bid } from '../requests'
 import BidsList from './BidsList'
+import NewBid from './NewBid'
 
 const AuctionShowPage = () => {
   const auctionId = useParams()
@@ -20,10 +21,6 @@ const AuctionShowPage = () => {
     Bid.index().then((fetchedAPIBids) => {
       // console.log(fetchedAPIBids)
       const result = fetchedAPIBids.filter((bid) => {
-        // console.log(bid.auction_id)
-        // console.log(bid.auctionID.id)
-        // console.log(`Bid Auction ID is:`, bid.auction_id)
-        // console.log(`Auction ID is:`, parseInt(auctionId.id))
         if (bid.auction_id === parseInt(auctionId.id)) {
           return bid
         }
@@ -38,16 +35,24 @@ const AuctionShowPage = () => {
   const { title, description, date, reserve_price } = auction
 
   return (
-    <>
-      <div>AuctionShowPage</div>
-      <div>Title: {auction.title}</div>
-      <div>Description: {auction.description}</div>
-      <div>Date: {auction.date}</div>
-      <div>Reserve Price: ${auction.reserve_price}</div>
-      {/* <Form></Form> */}
-      <BidsList bids={bids} />
-      <input type="text" />
-    </>
+    <div className='show-container'>
+      <div className='show-left'>
+        <h2>{auction.title}</h2>
+        <div className='description'>{auction.description}</div>
+        {/* <form>
+          <input type="text" /> 
+          <input type="submit" value="Bid" />
+        </form> */}
+        < NewBid />
+        <div className='previous-bids'>Previous Bids</div>
+        <BidsList bids={bids} />
+      </div>
+      <div className='show-right'>
+        <div>Reserve Price: ${auction.reserve_price}</div>
+        <div>Ends at: {auction.date}</div>
+        <div>Reserve price not met</div>
+      </div>
+    </div>
   )
 }
 

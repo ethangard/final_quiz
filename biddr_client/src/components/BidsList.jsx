@@ -10,7 +10,9 @@ const BidsList = ({ bids }) => {
                 key={i}
                 id={a.id}
                 price={a.price}
-                created_at={a.created_at}
+                created_at={a.created_at.toLocaleString('en-GB', {
+                  timeZone: 'UTC',
+                })}
               />
             )
           })

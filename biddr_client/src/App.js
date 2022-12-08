@@ -8,8 +8,10 @@ import { User } from './requests'
 import { useState, useEffect } from 'react'
 import SignUpPage from './components/SignUpPage'
 import AuctionShowPage from './components/AuctionShowPage'
+import NewAuctionPage from './components/NewAuctionPage'
+import AuthRoutes from './components/AuthRoutes'
 
-function App() {
+export default function App() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
@@ -18,7 +20,7 @@ function App() {
 
   const getCurrentUser = () => {
     return User.current().then((user) => {
-      // console.log(user)
+      console.log(`CurrentUser:`, user)
       if (user?.id) {
         setUser(user)
       }
@@ -33,9 +35,14 @@ function App() {
     <>
       <NavBar currentUser={user} onSignOut={onSignOut} />
       <Routes>
+        <Route element={<AuthRoutes isAllowed={!!user} />}>
+          <Route exact path="/auctions/new" element={<NewAuctionPage />} />
+        </Route>
+
         {/* <Route exact path="/auctions/new" element={<AuctionCreatePage />} /> */}
         <Route exact path="/auctions" element={<AuctionIndexPage />} />
         <Route exact path="/auctions/:id" element={<AuctionShowPage />} />
+
         <Route path="/" element={<WelcomePage />} />
         <Route
           exact
@@ -52,4 +59,4 @@ function App() {
   )
 }
 
-export default App
+

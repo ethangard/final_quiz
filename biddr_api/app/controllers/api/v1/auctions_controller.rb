@@ -1,8 +1,8 @@
-class Api::V1::AuctionsController <Api::ApplicationController
+class Api::V1::AuctionsController < Api::ApplicationController
 
   # skip_before_action :verify_authenticity_token
 
-  before_action :authenticate_user!, except: [:index, :show]
+ # before_action :authenticate_user!, except: [:index, :show]
 
   def index
     auctions = Auction.order(created_at: :desc)
@@ -24,7 +24,7 @@ class Api::V1::AuctionsController <Api::ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit(:title, :description, :date, :reserve_price)
+    params.require(:auction).permit(:title, :description, :date, :reserve_price, :user_id)
   end
 
 end
