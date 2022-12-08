@@ -39,31 +39,35 @@ const NewAuctionForm = (props) => {
     event.currentTarget.reset()
   }
   return (
-    <form onSubmit={getDataAndSubmit}>
-      <div>
-        <label htmlFor="title">Title</label>
-        <br />
-        <input type="text" name="title" id="" />
-      </div>
-      <div>
-        <label htmlFor="description">Description</label>
-        <br />
-        <input type="text" name="description" id="" />
-      </div>
-      <div>
-        <label htmlFor="body">Date</label>
-        <br />
-        <input type="text" name="date" id="" />
-      </div>
-      <div>
-        <label htmlFor="body">Reserve Price</label>
-        <br />
-        <input type="text" name="reserve_price" id="" />
-      </div>
-      <div>
-        <input type="submit" value="Save" />
-      </div>
-    </form>
+    <>
+      <h2 className="auctions-title-header">Create An Auction</h2>
+      <form onSubmit={getDataAndSubmit} className="form">
+        <div className="new-auction-input">
+          <label htmlFor="title">Title</label>
+          <br />
+          <input type="text" name="title" id="" />
+        </div>
+        <div className="new-auction-input">
+          <label htmlFor="description">Description</label>
+          <br />
+          <textarea cols="30" rows="5" name="description"></textarea>
+          {/* <input type="text" name="description" id="" /> */}
+        </div>
+        <div className="new-auction-input">
+          <label htmlFor="date">Date</label>
+          <br />
+          <input type="text" name="date" id="" />
+        </div>
+        <div className="new-auction-input">
+          <label htmlFor="reserve_price">Reserve Price</label>
+          <br />
+          <input type="text" name="reserve_price" id="" />
+        </div>
+        <div className="new-auction-input">
+          <input type="submit" value="Save" className="sign-in-btn" />
+        </div>
+      </form>
+    </>
   )
 }
 

@@ -12,7 +12,7 @@ const NavBar = ({ currentUser, onSignOut }) => {
 
   return (
     <nav>
-      <div>
+      <div className='logo'>
         <Link to="/">
           <img src={coins} className="logo" />
         </Link>
@@ -28,8 +28,10 @@ const NavBar = ({ currentUser, onSignOut }) => {
           <NavLink className="nav-item" to="/auctions/new">
             List Auction
           </NavLink>{' '}
-          <span>Welcome, {currentUser.first_name}</span>-
-          <button onClick={handleSignOut}>Sign Out</button>-
+          <span>Welcome, {currentUser.first_name}</span>
+          <button onClick={handleSignOut} className="sign-out-btn">
+            Sign Out
+          </button>
         </>
       ) : (
         <>

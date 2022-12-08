@@ -28,33 +28,54 @@ function SignUpPage(props) {
   }
 
   return (
-    <main className='sign-in'>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <main className="sign-in">
+      <form onSubmit={handleSubmit} className="form">
+        <div className="flex-group">
           <label htmlFor="first_name">First name</label>
-          <input type="text" name="first_name" id="first_name" />
+          <input
+            type="text"
+            name="first_name"
+            id="first_name"
+            className="sign-in-input"
+          />
         </div>
-        <div>
+        <div className="flex-group">
           <label htmlFor="last_name">Last name</label>
-          <input type="text" name="last_name" id="last_name" />
+          <input
+            type="text"
+            name="last_name"
+            id="last_name"
+            className="sign-in-input"
+          />
         </div>
-        <div>
+        <div className="flex-group">
           <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" />
+          <input
+            type="text"
+            name="email"
+            id="email"
+            className="sign-in-input"
+          />
         </div>
-        <div>
+        <div className="flex-group">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            className="sign-in-input"
+          />
         </div>
-        <div>
+        <div className="flex-group">
           <label htmlFor="password_confirmation">Confirm Password</label>
           <input
             type="password"
             name="password_confirmation"
             id="password_confirmation"
+            className="sign-in-input"
           />
         </div>
-        <input type="submit" value="Sign Up" />
+        <input type="submit" value="Sign Up" className="sign-in-btn" />
       </form>
     </main>
   )

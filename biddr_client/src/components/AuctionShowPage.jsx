@@ -32,6 +32,22 @@ const AuctionShowPage = () => {
     })
   }, [])
 
+
+    function createNewBid(params) {
+    // console.log(`Params: ${params.title} ${params.body}`)
+    Bid.create(params).then((Bid) => {
+      console.log(`Auction: ${Bid}`)
+      if (Auction.errors) {
+        console.log(`AuctionErrors: ${Auction.errors}`, Auction.errors)
+        this.setState({ errors: Auction.errors })
+      } else {
+        console.log(this.props)
+        this.props.navigate(`/Auctions/${Auction.id}`)
+      }
+    })
+  }
+
+
   const { title, description, date, reserve_price } = auction
 
   return (
@@ -43,14 +59,14 @@ const AuctionShowPage = () => {
           <input type="text" /> 
           <input type="submit" value="Bid" />
         </form> */}
-        < NewBid />
+        < NewBid  />
         <div className='previous-bids'>Previous Bids</div>
-        <BidsList bids={bids} />
+        <BidsList bids={bids} props={createNewBid}/>
       </div>
       <div className='show-right'>
-        <div>Reserve Price: ${auction.reserve_price}</div>
-        <div>Ends at: {auction.date}</div>
-        <div>Reserve price not met</div>
+        <div className='content-right'>Current Price: ${auction.reserve_price}</div>
+        <div className='content-right'>Ends at: {auction.date}</div>
+        <div className='content-right'>Reserve price not met</div>
       </div>
     </div>
   )

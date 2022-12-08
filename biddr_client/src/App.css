@@ -1,3 +1,8 @@
+body {
+  font-family: 'Papyrus', sans-serif;
+  font-size: 1.2em;
+}
+
 .App {
   text-align: center;
 }
@@ -49,6 +54,11 @@ nav {
 
 .nav-item {
   margin: 1em;
+}
+
+.logo:nth-child(1) {
+  margin-right: auto;
+  font-size: 1.5em;
 }
 
 a {
@@ -160,10 +170,11 @@ a {
 
 .show-right {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 }
 
 h2 {
@@ -171,11 +182,58 @@ h2 {
   margin: 0;
 }
 
-.previous-bids{
+.previous-bids {
   text-decoration: underline;
   margin-top: 0.5em;
 }
 
 .bids {
   margin: 0.4em;
+}
+
+.sign-out-btn {
+  background-color: #000;
+  color: #fff;
+  font-size: 1.1em;
+  margin-left: 0.5em;
+}
+
+.content-right {
+  margin-bottom: 0.5em;
+}
+
+.bid-form {
+  width: 100%;
+  padding: 0.3em;
+}
+
+.bid-form > input[type='text'] {
+  width: 70%;
+  margin-right: 0.2em;
+  height: 1.4em;
+}
+
+.bid-form > input[type='submit'] {
+  width: 20%;
+  margin-right: 0.2em;
+  height: 1.8em;
+  background-color: #000;
+  color: #fff;
+}
+
+.new-auction-input {
+  display: flex;
+  justify-content: center;
+  padding: 0.4em;
+}
+
+.new-auction-input > label {
+  margin-right: 1em;
+  display: inline-block;
+  width: 140px;
+  text-align: right;
+}
+
+.new-auction-input > input[type='text'] {
+  width: 250px;
 }
